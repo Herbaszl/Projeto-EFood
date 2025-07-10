@@ -8,9 +8,11 @@ export const Card = styled.div`
   border: solid 2px ${Cores.rosa};
   color: ${Cores.rosa};
   position: relative;
+  max-width: 472px;
 
   img {
     width: 100%;
+    height: 217px;
     display: block;
   }
 

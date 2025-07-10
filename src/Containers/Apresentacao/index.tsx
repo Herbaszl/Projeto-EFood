@@ -1,11 +1,17 @@
 import Tag from '../../Components/Tag'
 import * as S from './styles'
 
-const Apresentacao = () => (
-  <S.Container>
+type Props = {
+  capa: string
+  titulo: string
+  tipo: string
+}
+
+const Apresentacao = ({ capa, tipo, titulo }: Props) => (
+  <S.Container style={{ backgroundImage: `url(${capa})` }}>
     <S.Conteudo>
-      <S.Categoria>Italiana</S.Categoria>
-      <S.Titulo>La Dolce Vitta Trattoria</S.Titulo>
+      <S.Categoria>{tipo}</S.Categoria>
+      <S.Titulo>{titulo}</S.Titulo>
     </S.Conteudo>
   </S.Container>
 )

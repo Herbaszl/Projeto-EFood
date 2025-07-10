@@ -10,9 +10,9 @@ export const Container = styled.footer`
   text-align: center;
   font-family: Roboto, sans-serif;
   height: auto;
+  margin-top: 30px;
 
   @media (max-width: 768px) {
-    margin-top: 30px;
     padding: 32px 0;
   }
 

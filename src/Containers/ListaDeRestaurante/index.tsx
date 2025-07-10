@@ -2,24 +2,26 @@ import Restaurante from '../../Components/Restaurante'
 import { Container, List } from './styles'
 import macarrao from '../../assets/images/macarrao.png'
 import sushi from '../../assets/images/sushi.png'
-import Restaurants from '../../models/restaurantes'
-
+import { RestauranteType } from '../../types/types'
 type Props = {
-  restaurant: Restaurants[]
+  listaRestaurantes: RestauranteType[]
 }
 
-const ListaDeRestaurantes = ({ restaurant }: Props) => (
+const ListaDeRestaurantes = ({ listaRestaurantes }: Props) => (
   <Container>
     <div className="container">
       <List>
-        {restaurant.map((restaurant) => (
+        {listaRestaurantes.map((listaRestaurantes) => (
           <Restaurante
-            key={restaurant.id}
-            avaliacao={restaurant.avaliacao}
-            name={restaurant.name}
-            infos={restaurant.infos}
-            image={restaurant.image}
-            descricao={restaurant.descricao}
+            key={listaRestaurantes.id}
+            id={listaRestaurantes.id}
+            avaliacao={listaRestaurantes.avaliacao}
+            titulo={listaRestaurantes.titulo}
+            infos={listaRestaurantes.destacado ? ['Destaque'] : []}
+            capa={listaRestaurantes.capa}
+            tipo={listaRestaurantes.tipo}
+            destacado={listaRestaurantes.destacado}
+            descricao={listaRestaurantes.descricao}
           />
         ))}
       </List>

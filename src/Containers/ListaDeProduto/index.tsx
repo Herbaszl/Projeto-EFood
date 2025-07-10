@@ -1,29 +1,29 @@
 import Produto from '../../Components/Produto'
+import { ProdutoType } from '../../types/types'
 import * as S from './styles'
 
-const ListaDeProduto = () => (
-  <>
-    <S.Produtos>
-      <li>
-        <Produto />
-      </li>
-      <li>
-        <Produto />
-      </li>
-      <li>
-        <Produto />
-      </li>
-      <li>
-        <Produto />
-      </li>
-      <li>
-        <Produto />
-      </li>
-      <li>
-        <Produto />
-      </li>
-    </S.Produtos>
-  </>
-)
+type Props = {
+  product: ProdutoType[]
+}
+
+const ListaDeProduto = ({ product }: Props) => {
+  return (
+    <>
+      <S.Produtos>
+        {product.map((listaProdutos) => (
+          <Produto
+            key={listaProdutos.id}
+            id={listaProdutos.id}
+            name={listaProdutos.nome}
+            image={listaProdutos.foto}
+            descricao={listaProdutos.descricao}
+            preco={listaProdutos.preco}
+            porcao={listaProdutos.porcao}
+          />
+        ))}
+      </S.Produtos>
+    </>
+  )
+}
 
 export default ListaDeProduto

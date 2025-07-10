@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import banner from '../../assets/images/banner.png'
 
 export const Container = styled.div`
-  background-image: url(${banner});
   background-size: cover;
   color: #fff;
   background-repeat: no-repeat;
@@ -25,7 +23,7 @@ export const Container = styled.div`
 `
 
 export const Titulo = styled.h1`
-  font-weight: 900;
+  font-weight: black;
   font-size: 2.25em;
 
   @media (max-width: 768px) {
@@ -39,6 +37,7 @@ export const Titulo = styled.h1`
 export const Categoria = styled.span`
   font-weight: 100;
   font-size: 2em;
+  color: #fff;
 `
 
 export const Conteudo = styled.div`
