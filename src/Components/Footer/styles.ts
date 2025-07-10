@@ -8,9 +8,9 @@ export const Container = styled.footer`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 298px;
   font-family: Roboto, sans-serif;
   height: 298px;
-  margin-bottom: 40px;
 `
 
 export const LogoRed = styled.a`
@@ -35,7 +35,7 @@ export const RodaPe = styled.p`
   line-height: 16px;
   color: ${Cores.rosa};
 
-  margin: 0 auto;
+  margin-top: 80px;
 `
 
 export const RedesContainer = styled.div`
