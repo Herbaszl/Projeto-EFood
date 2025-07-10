@@ -33,6 +33,10 @@ export const Sidebar = styled.aside`
   width: 100%;
   z-index: 1;
 
+  @media (max-width: 768px) {
+    max-width: 240px;
+  }
+
   ul {
     padding-left: 0;
     margin: 0;
