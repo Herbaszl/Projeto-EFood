@@ -1,16 +1,34 @@
 import React, { useState } from 'react'
 import * as S from './styles'
 import closeIcon from '../../assets/images/close.svg'
+import { useDispatch } from 'react-redux'
+import { add } from '../../store/reducers/cart'
+
 type Props = {
   id: number
-  name: string
+  nome: string
   descricao: string
-  image: string
+  foto: string
   preco?: number
   porcao?: string
 }
 
-const Produto = ({ id, name, descricao, image, preco, porcao }: Props) => {
+const Produto = ({ id, nome, descricao, foto, preco, porcao }: Props) => {
+  const produtoAdd = {
+    foto,
+    id,
+    nome,
+    descricao,
+    preco: preco || 0,
+    porcao: porcao || ''
+  }
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(produtoAdd))
+  }
+
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
 
   const abrirModal = () => {
@@ -26,10 +44,9 @@ const Produto = ({ id, name, descricao, image, preco, porcao }: Props) => {
     <>
       <S.CardProduto>
         <S.Conteudo>
-          <S.ImagemProduto src={image} />
-          <S.Titulo>{name}</S.Titulo>
+          <S.ImagemProduto src={foto} />
+          <S.Titulo>{nome}</S.Titulo>
           <S.Descricao>{descricao}</S.Descricao>
-          {/* BOTÃO QUE ABRE O MODAL */}
           <S.BtnCarrinho onClick={abrirModal}>
             Adicionar ao Carrinho
           </S.BtnCarrinho>
@@ -41,10 +58,10 @@ const Produto = ({ id, name, descricao, image, preco, porcao }: Props) => {
           <S.Overlay onClick={fecharModal} />
 
           <S.ModalContent>
-            <S.ModalImage src={image} alt={name} />
+            <S.ModalImage src={foto} alt={nome} />
             <S.ModalTextContent>
               <S.ModalHeader>
-                <h4>{name}</h4>
+                <h4>{nome}</h4>
 
                 <S.CloseButton
                   src={closeIcon}
@@ -54,7 +71,12 @@ const Produto = ({ id, name, descricao, image, preco, porcao }: Props) => {
               </S.ModalHeader>
               <S.ModalDescription>{descricao}</S.ModalDescription>
               {porcao && <p>{porcao}</p>}
-              <S.ModalAddToCartButton>
+              <S.ModalAddToCartButton
+                onClick={() => {
+                  addToCart()
+                  fecharModal()
+                }}
+              >
                 Adicionar ao carrinho - R${' '}
                 {preco ? preco.toFixed(2).replace('.', ',') : '0,00'}
               </S.ModalAddToCartButton>

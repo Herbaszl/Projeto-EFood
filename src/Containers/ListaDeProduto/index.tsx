@@ -14,8 +14,8 @@ const ListaDeProduto = ({ product }: Props) => {
           <Produto
             key={listaProdutos.id}
             id={listaProdutos.id}
-            name={listaProdutos.nome}
-            image={listaProdutos.foto}
+            nome={listaProdutos.nome}
+            foto={listaProdutos.foto}
             descricao={listaProdutos.descricao}
             preco={listaProdutos.preco}
             porcao={listaProdutos.porcao}

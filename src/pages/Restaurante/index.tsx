@@ -1,44 +1,34 @@
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import Footer from '../../Components/Footer'
 import Header from '../../Components/Header'
 import Apresentacao from '../../Containers/Apresentacao'
 import ListaDeProduto from '../../Containers/ListaDeProduto'
-import { RestauranteType } from '../../types/types'
+import { useGetRestaurantByIdQuery } from '../../services/api'
+import Cart from '../../Components/Cart'
 
 const Restaurante = () => {
   const { id } = useParams<{ id: string }>()
 
-  const [restaurante, setRestaurante] = useState<RestauranteType | null>(null)
-  const [carregando, setCarregando] = useState(true)
+  const {
+    data: restaurante,
+    isLoading,
+    isError,
+    error
+  } = useGetRestaurantByIdQuery(id || '')
 
-  useEffect(() => {
-    if (id) {
-      const fetchRestaurante = async () => {
-        try {
-          const response = await fetch(
-            `https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`
-          )
-          if (!response.ok) {
-            throw new Error(`Erro HTTP! Status: ${response.status}`)
-          }
-          const data: RestauranteType = await response.json()
-          setRestaurante(data)
-        } catch (error) {
-          console.error(`Erro ao buscar o restaurante ${id}:`, error)
-        } finally {
-          setCarregando(false)
-        }
-      }
-
-      fetchRestaurante()
-    }
-  }, [id])
-
-  if (carregando) {
+  if (isLoading) {
     return (
       <p style={{ textAlign: 'center', padding: '20px' }}>
-        Carregando informações do restaurante e cardápio...
+        Estamos carregando sua fome para longe!...
+      </p>
+    )
+  }
+
+  if (isError) {
+    console.error('Erro ao carregar restaurante:', error)
+    return (
+      <p style={{ textAlign: 'center', padding: '20px', color: 'red' }}>
+        Ops, acho que escorreguei nos cabos sem querer.
       </p>
     )
   }
@@ -46,7 +36,7 @@ const Restaurante = () => {
   if (!restaurante) {
     return (
       <p style={{ textAlign: 'center', padding: '20px' }}>
-        Restaurante não encontrado.
+        Infelizmente seu Restaurante não está aberto
       </p>
     )
   }
@@ -63,6 +53,7 @@ const Restaurante = () => {
         <ListaDeProduto product={restaurante.cardapio} />
       </div>
       <Footer />
+      <Cart />
     </>
   )
 }
