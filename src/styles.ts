@@ -16,7 +16,8 @@ body{
 
 .container{
  max-width: 1024px;
-  margin: 0 auto;}
+  margin: 0 auto;
+  padding: 0 16px;
 `
 
 export const Cores = {
