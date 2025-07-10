@@ -6,8 +6,6 @@ export const CardProduto = styled.li`
   border: 1px solid ${Cores.fundo};
   padding: 8px;
   position: relative;
-  font-family: Roboto, sans-serif;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;

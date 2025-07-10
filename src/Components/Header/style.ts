@@ -12,8 +12,6 @@ export const Container = styled.header<ContainerProps>`
   background-size: auto;
   position: relative;
   overflow: hidden;
-
-  font-family: Roboto, sans-serif;
   border-bottom: 1px solid #f0e0e0;
 
   ${(props) =>
@@ -121,14 +119,9 @@ export const LinkRestaurante = styled.a`
 
 export const LogoContainer = styled.div<ContainerProps>`
   padding: 8px 16px;
-  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border: ${(props) =>
-    props.variant === 'home' ? 'none' : `2px solid ${Cores.rosa}`};
-
   margin-bottom: ${(props) => (props.variant === 'home' ? '0' : '0')};
 `
 
