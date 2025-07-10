@@ -6,6 +6,14 @@ export const Produtos = styled.ul`
   gap: 24px;
 
   @media (max-width: 768px) {
+    grit-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 8px;
+  }
+
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 16px;
   }
 `

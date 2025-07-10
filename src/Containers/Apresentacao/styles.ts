@@ -8,16 +8,38 @@ export const Container = styled.div`
   color: #fff;
   background-repeat: no-repeat;
   margin-bottom: 57px;
+
+  @media (max-width: 1024px) {
+    padding: 24px 80px 32px 80px;
+  }
+
+  @media (max-width: 768px) {
+    height: 220px;
+    padding: 16px 24px 24px 24px;
+    background-size: cover; /* Pode ser melhor em telas menores */
+  }
+
+  @media (max-width: 480px) {
+    height: 180px;
+    padding: 12px 16px 16px 16px;
+  }
 `
 
 export const Titulo = styled.h1`
   font-weight: 900;
-  font-size: 32px;
+  font-size: 2.25em;
+
+  @media (max-width: 768px) {
+    font-size: 1.8em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5em;
+  }
 `
-// Quero pedir desculpas, não consegui centralizar os titulos de outra forma :( ass: João
 export const Categoria = styled.span`
   font-weight: 100;
-  font-size: 32px;
+  font-size: 2em;
 `
 
 export const Conteudo = styled.div`
@@ -29,4 +51,12 @@ export const Conteudo = styled.div`
   align-items: flex-start;
   padding: 16px 40px;
   height: 280px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
 `

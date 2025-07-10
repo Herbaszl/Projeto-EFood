@@ -20,6 +20,11 @@ export const CardProduto = styled.li`
     display: block;
     margin-bottom: 8px;
   }
+
+  @media (max-width: 760px) {
+    padding: 12px;
+    height: 90%;
+  }
 `
 
 export const Conteudo = styled.div`
@@ -35,6 +40,10 @@ export const Titulo = styled.h3`
   color: ${Cores.fundo};
   margin-top: 0;
   margin-bottom: 8px;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 `
 
 export const Descricao = styled.p`
