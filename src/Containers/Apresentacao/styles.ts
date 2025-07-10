@@ -3,7 +3,6 @@ import banner from '../../assets/images/banner.png'
 
 export const Container = styled.div`
   background-image: url(${banner});
-
   background-size: cover;
   color: #fff;
   background-repeat: no-repeat;
@@ -15,8 +14,8 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     height: 220px;
-    padding: 16px 24px 24px 24px;
-    background-size: cover; /* Pode ser melhor em telas menores */
+    background-size: cover;
+    max-width: 768px;
   }
 
   @media (max-width: 480px) {
@@ -58,5 +57,6 @@ export const Conteudo = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0;
+    padding: 0;
   }
 `

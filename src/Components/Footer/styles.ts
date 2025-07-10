@@ -12,6 +12,7 @@ export const Container = styled.footer`
   height: auto;
 
   @media (max-width: 768px) {
+    margin-top: 30px;
     padding: 32px 0;
   }
 
