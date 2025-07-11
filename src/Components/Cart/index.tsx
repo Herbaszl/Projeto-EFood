@@ -135,7 +135,8 @@ const Cart = () => {
         {currentView === 'success' && (
           <FormularioContainer>
             <FormTitulo>
-              Pedido Realizado! {orderId ? `(ID: ${orderId})` : 'semID'}
+              Pedido Realizado!{' '}
+              {orderId ? `(Código do Pedido: ${orderId})` : 'semID'}
             </FormTitulo>
             <p
               style={{

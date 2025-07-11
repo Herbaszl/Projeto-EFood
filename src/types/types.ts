@@ -25,7 +25,6 @@ export type DeliveryAddress = {
   complement?: string
 }
 
-// Tipo para os dados de entrega do formulário
 export type DeliveryData = {
   receiver: string
   address: DeliveryAddress
@@ -43,8 +42,6 @@ export type CheckoutState = {
   delivery: DeliveryData | null
   payment: PaymentCardData | null
 }
-
-// Irei tentar usar esses tipos na API
 
 export type PurchaseProductPayload = {
   id: number
