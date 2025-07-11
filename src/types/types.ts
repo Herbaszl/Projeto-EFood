@@ -1,5 +1,5 @@
 export type ProdutoType = {
-  //Descobri onde vou usar a Array de Produtos :D
+
   foto: string
   preco: number
   id: number
@@ -15,5 +15,75 @@ export type RestauranteType = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: ProdutoType[] // Isso aqui vai retornar um array de produtos, só n sei o q eu vou fazer com isso kkkk
+  cardapio: ProdutoType[]
+
+export type DeliveryAddress = {
+  description: string
+  city: string
+  zipCode: string
+  number: number
+  complement?: string
+}
+
+// Tipo para os dados de entrega do formulário
+export type DeliveryData = {
+  receiver: string
+  address: DeliveryAddress
+}
+
+
+export type PaymentCardData = {
+  name: string
+  cardNumber: string
+  cvv: string
+  expiresMonth: string // Manter esses dois em string depois passar um parseInt
+  expiresYear: string
+}
+
+
+export type CheckoutState = {
+  delivery: DeliveryData | null
+  payment: PaymentCardData | null
+}
+
+// Irei tentar usar esses tipos na API
+
+export type PurchaseProductPayload = {
+  id: number
+  price: number
+}
+
+export type PurchaseAddressPayload = {
+  description: string
+  city: string
+  zipCode: string
+  number: number
+  complement?: string
+}
+
+export type PurchaseDeliveryPayload = {
+  receiver: string
+  address: PurchaseAddressPayload
+}
+
+export type PurchaseCardExpiresPayload = {
+  month: number
+  year: number
+}
+
+export type PurchaseCardPayload = {
+  name: string
+  number: string
+  code: number
+  expires: PurchaseCardExpiresPayload
+}
+
+export type PurchasePaymentPayload = {
+  card: PurchaseCardPayload
+}
+
+export type PurchasePayload = {
+  products: PurchaseProductPayload[]
+  delivery: PurchaseDeliveryPayload
+  payment: PurchasePaymentPayload
 }

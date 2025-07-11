@@ -32,7 +32,6 @@ const Produto = ({ id, nome, descricao, foto, preco, porcao }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
 
   const abrirModal = () => {
-    console.log('Abrindo modal...')
     setModalEstaAberto(true)
   }
 
@@ -63,7 +62,7 @@ const Produto = ({ id, nome, descricao, foto, preco, porcao }: Props) => {
               <S.ModalHeader>
                 <h4>{nome}</h4>
 
-                <S.CloseButton
+                <S.BotaoFechar
                   src={closeIcon}
                   alt="Fechar"
                   onClick={fecharModal}

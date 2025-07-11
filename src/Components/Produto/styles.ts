@@ -152,7 +152,7 @@ export const ModalHeader = styled.header`
   }
 `
 
-export const CloseButton = styled.img`
+export const BotaoFechar = styled.img`
   width: 16px;
   height: 16px;
   cursor: pointer;

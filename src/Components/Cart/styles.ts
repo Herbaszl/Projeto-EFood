@@ -20,6 +20,7 @@ export const CartContainer = styled.div`
   height: 100%;
   display: none;
   justify-content: flex-end;
+  overflow-x: hidden;
   z-index: 1;
 
   &.is-open {
@@ -29,9 +30,11 @@ export const CartContainer = styled.div`
 export const Sidebar = styled.aside`
   background-color: ${Cores.rosa};
   padding: 40px 16px 0px 16px;
-  max-width: 340px;
+  max-width: 380px;
   width: 100%;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 768px) {
     max-width: 240px;
@@ -40,6 +43,8 @@ export const Sidebar = styled.aside`
   ul {
     padding-left: 0;
     margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
   }
 `
 
@@ -58,6 +63,7 @@ export const CartItem = styled.li`
   height: 100px;
   margin-bottom: 16px;
   position: relative;
+  box-sizing: border-box;
 
   img {
     height: 80px;
@@ -77,8 +83,8 @@ export const CartItem = styled.li`
     color: ${Cores.rosa};
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 8px; /* Espaçamento entre o título e o preço */
-    margin-left: 0; /* Remove o margin-left fixo */
+    margin-bottom: 8px;
+    margin-left: 0;
   }
 
   span {
