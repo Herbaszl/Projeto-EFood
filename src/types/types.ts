@@ -1,5 +1,4 @@
 export type ProdutoType = {
-
   foto: string
   preco: number
   id: number
@@ -16,6 +15,7 @@ export type RestauranteType = {
   descricao: string
   capa: string
   cardapio: ProdutoType[]
+}
 
 export type DeliveryAddress = {
   description: string
@@ -31,7 +31,6 @@ export type DeliveryData = {
   address: DeliveryAddress
 }
 
-
 export type PaymentCardData = {
   name: string
   cardNumber: string
@@ -39,7 +38,6 @@ export type PaymentCardData = {
   expiresMonth: string // Manter esses dois em string depois passar um parseInt
   expiresYear: string
 }
-
 
 export type CheckoutState = {
   delivery: DeliveryData | null
